@@ -38,6 +38,7 @@ export default {
             const params = new URLSearchParams(queryString)
             window.location = params
             window.location.search
+            liff.closeWindow();
             // if (params) {
             //     window.location.replace(params)
             // }
