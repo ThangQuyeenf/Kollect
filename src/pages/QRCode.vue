@@ -16,9 +16,9 @@ export default {
         };
     },
     methods: {
-        scanCode() {
-            liff.init({ liffId: '2001602140-y3gZ0PPj' }, () => {
-                liff.login()
+        async scanCode() {
+            liff.init({ liffId: '2001602140-y3gZ0PPj' }, async () => {
+                await liff.login()
                 alert(liff.isInClient())
                 if (liff.isInClient()) {
                     liff.scanCodeV2().then(result => {
