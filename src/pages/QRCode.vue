@@ -18,6 +18,7 @@ export default {
     methods: {
         scanCode() {
             liff.init({ liffId: '2001602140-y3gZ0PPj' }, () => {
+                alert(liff.isInClient())
                 if (liff.isInClient()) {
                     liff.scanCodeV2().then(result => {
                         this.scanResult = result.value;
