@@ -37,6 +37,7 @@ export default {
             const queryString = decodeURIComponent(window.location.search)
             const params = new URLSearchParams(queryString)
             if (params.get('param') !== null) {
+                alert(params)
                 this.data = params.get('param')
                 this.isScanResult = true
             }
