@@ -1,11 +1,11 @@
 
 // src/router/index.js
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 import IndexPage from '@/pages/Index.vue'
 import PageNotFound from '@/components/PageNotFound.vue'
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -20,7 +20,7 @@ const routes = [
   }  
 ];
 
-const router = new Router({
+const router = new VueRouter({
   history: 'history',
   routes
 });

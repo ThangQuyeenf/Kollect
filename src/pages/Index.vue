@@ -58,8 +58,10 @@ export default {
     },
 
     async created() {
-        liff.init({ liffId: this.liff_id })
-        if (!liff.isLoggedIn) {
+        const liffid = '2001602140-y3gZ0PPj'
+        liff.init({ liffId: '2001602140-y3gZ0PPj' })
+        console.log(liff.isLoggedIn())
+        if (!liff.isLoggedIn()) {
             liff.login()
         }
     },
