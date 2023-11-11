@@ -32,19 +32,7 @@ export default {
     },
     methods: {
         openCamera() {
-            const liffid = '2001602140-y3gZ0PPj'
-            liff.init({
-                liffId: '2001602140-y3gZ0PPj'
-            }).then(() => {
-                // Initialization is successful
-                liff.login()
-            }).catch((error) => {
-                // Initialization failed
-            });
-            console.log(liff.isLoggedIn())
-            if (!liff.isLoggedIn()) {
-                liff.login()
-            }
+            
             console.log('Open Camera')
             console.log(this.liff_id)
             // Check if the LIFF API is available
@@ -71,7 +59,19 @@ export default {
     },
 
     async created() {
-
+        const liffid = '2001602140-y3gZ0PPj'
+            liff.init({
+                liffId: '2001602140-y3gZ0PPj'
+            }).then(() => {
+                // Initialization is successful
+                liff.login()
+            }).catch((error) => {
+                // Initialization failed
+            });
+            console.log(liff.isLoggedIn())
+            if (!liff.isLoggedIn()) {
+                liff.login()
+            }
     },
 }
 </script>
