@@ -48,6 +48,7 @@ export default {
                     })
                     .catch(error => {
                         // Handle any errors that occur during the scanning process
+                        alert(error)
                         console.error("Error scanning QR code: " + error);
                     });
             } else {
