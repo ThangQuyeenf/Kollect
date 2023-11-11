@@ -36,10 +36,11 @@ export default {
             await liff.init({ liffId: '2001602140-y3gZ0PPj' })
             const queryString = decodeURIComponent(window.location.search)
             const params = new URLSearchParams(queryString)
-            // alert(params)
-            if (params) {
-                window.location.replace(params)
-            }
+            window.location = params
+            window.location.search
+            // if (params) {
+            //     window.location.replace(params)
+            // }
             
             if (params.get('param') !== null) {
                 alert(params)
