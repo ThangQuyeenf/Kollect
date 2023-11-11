@@ -12,7 +12,10 @@ export default {
     name: "QRCodePage",
     data() {
         return {
-            scanResult: null
+            scanResult: null,
+            data: null,
+            liff_id: '2001602140-y3gZ0PPj',
+            isScanResult: false
         };
     },
     methods: {
@@ -21,9 +24,19 @@ export default {
                 await liff.login()
                 alert(liff.isInClient())
                 if (liff.isInClient()) {
-                    liff.scanCodeV2().then(result => {
-                        this.scanResult = result.value;
-                    });
+                    await liff.scanCodeV2()
+                        .then(result => {
+                            // Process the result, which contains the QR code data
+                            const qrCodeData = result.value;
+                            this.scanResult = qrCodeData;
+                            this.isScanResult = true
+                            console.log("Scanned QR code data: " + qrCodeData);
+                        })
+                        .catch(error => {
+                            // Handle any errors that occur during the scanning process
+                            alert(error)
+                            console.error("Error scanning QR code: " + error);
+                        });
                 } else {
                     alert('Ứng dụng phải được mở trong LINE để sử dụng tính năng quét mã QR');
                 }
