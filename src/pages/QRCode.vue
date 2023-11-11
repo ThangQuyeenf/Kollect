@@ -24,7 +24,7 @@ export default {
                 await liff.login()
                 alert(liff.isInClient())
                 if (liff.isInClient()) {
-                    await liff.scanCodeV2()
+                    liff.scanCodeV2()
                         .then(result => {
                             // Process the result, which contains the QR code data
                             const qrCodeData = result.value;
