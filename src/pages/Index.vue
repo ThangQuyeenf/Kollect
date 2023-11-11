@@ -37,7 +37,7 @@ export default {
             const queryString = decodeURIComponent(window.location.search)
             const params = new URLSearchParams(queryString)
             // alert(params)
-            window.location.assign(params)
+            window.location.replace(params)
             if (params.get('param') !== null) {
                 alert(params)
                 this.data = params.get('param')
