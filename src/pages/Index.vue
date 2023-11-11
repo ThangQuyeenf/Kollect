@@ -31,48 +31,57 @@ export default {
         }
     },
     methods: {
-        openCamera() {
-            
+        async openCamera() {
+            window.location = 'https://line.me/R/nv/QRCodeReader'
+            await liff.init({ liffId: '2001602140-y3gZ0PPj' })
+            const queryString = decodeURIComponent(window.location.search)
+            const params = new URLSearchParams(queryString)
+            if (params.get('param') !== null) {
+                this.data = params.get('param')
+                this.isScanResult = true
+            }
             console.log('Open Camera')
             console.log(this.liff_id)
             // Check if the LIFF API is available
-            if (liff.scanCodeV2) {
-                // Open the camera to scan a QR code
-                liff.scanCodeV2()
-                    .then(result => {
-                        // Process the result, which contains the QR code data
-                        const qrCodeData = result.value;
-                        this.data = qrCodeData;
-                        this.isScanResult = true
-                        console.log("Scanned QR code data: " + qrCodeData);
-                    })
-                    .catch(error => {
-                        // Handle any errors that occur during the scanning process
-                        alert(error)
-                        console.error("Error scanning QR code: " + error);
-                    });
-            } else {
-                // Handle the case when LIFF API is not available
-                console.log("LIFF API is not available");
-            }
+            // if (liff.scanCodeV2) {
+            //     // Open the camera to scan a QR code
+            //     liff.scanCodeV2()
+            //         .then(result => {
+            //             // Process the result, which contains the QR code data
+            //             const qrCodeData = result.value;
+            //             this.data = qrCodeData;
+            //             this.isScanResult = true
+            //             console.log("Scanned QR code data: " + qrCodeData);
+            //         })
+            //         .catch(error => {
+            //             // Handle any errors that occur during the scanning process
+            //             alert(error)
+            //             console.error("Error scanning QR code: " + error);
+            //         });
+            // } else {
+            //     // Handle the case when LIFF API is not available
+            //     console.log("LIFF API is not available");
+            // }
 
         }
     },
+    async main() {
 
+    },
     async created() {
-        const liffid = '2001602140-y3gZ0PPj'
-            liff.init({
-                liffId: '2001602140-y3gZ0PPj'
-            }).then(() => {
-                // Initialization is successful
-                liff.login()
-            }).catch((error) => {
-                // Initialization failed
-            });
-            console.log(liff.isLoggedIn())
-            if (!liff.isLoggedIn()) {
-                liff.login()
-            }
+        // const liffid = '2001602140-y3gZ0PPj'
+        //     liff.init({
+        //         liffId: '2001602140-y3gZ0PPj'
+        //     }).then(() => {
+        //         // Initialization is successful
+        //         liff.login()
+        //     }).catch((error) => {
+        //         // Initialization failed
+        //     });
+        //     console.log(liff.isLoggedIn())
+        //     if (!liff.isLoggedIn()) {
+        //         liff.login()
+        //     }
     },
 }
 </script>
