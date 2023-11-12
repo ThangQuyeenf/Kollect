@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         async scanCode() {
-            liff.init({ liffId: '2001602140-y3gZ0PPj' }, async () => {
+            liff.init({ liffId: '2001602140-y3gZ0PPj' }).then( async () => {
                 await liff.login()
                 alert(liff.isInClient())
                 if (liff.isInClient()) {
