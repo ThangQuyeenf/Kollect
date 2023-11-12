@@ -20,10 +20,9 @@ export default {
     },
     methods: {
         async scanCode() {
-            liff.init({ liffId: '2001602140-y3gZ0PPj' }).then( async () => {
-                await liff.login()
-                alert(liff.isInClient())
-                if (liff.isInClient()) {
+            liff.init({ liffId: '2001602140-y3gZ0PPj' })
+                .then(async () => {
+                    await liff.login()
                     liff.scanCodeV2()
                         .then(result => {
                             // Process the result, which contains the QR code data
@@ -37,10 +36,11 @@ export default {
                             alert(error)
                             console.error("Error scanning QR code: " + error);
                         });
-                } else {
-                    alert('Ứng dụng phải được mở trong LINE để sử dụng tính năng quét mã QR');
-                }
-            });
+
+                })
+                .catch((err) => {
+                    alert('ERROR: ', err)
+                });
         }
     },
 };
