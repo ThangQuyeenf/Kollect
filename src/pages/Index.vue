@@ -18,6 +18,7 @@
                 </v-btn>
             </div>
             <div v-if="isScanResult"> {{ data }}</div>
+            <div v-if="jwttoken"> {{ jwttoken }}</div>
         </div>
     </v-container>
 </template>
@@ -32,7 +33,8 @@ export default {
         return {
             data: null,
             liff_id: '2001602140-y3gZ0PPj',
-            isScanResult: false
+            isScanResult: false,
+            jwttoken: null,
         }
     },
     methods: {
@@ -62,6 +64,7 @@ export default {
         if(!liff.isLoggedIn()){
             await liff.login({ redirectUri: "https://kollect-one.vercel.app" })
         }
+        this.jwttoken = liff.getIDToken()
     },
 }
 </script>
