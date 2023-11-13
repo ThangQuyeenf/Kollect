@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import IndexPage from '@/pages/Index.vue'
 import PageNotFound from '@/components/PageNotFound.vue'
 import QRCodePage from '@/pages/QRCode.vue'
+import LoadingPage from '@/pages/Loading.vue'
 Vue.use(VueRouter);
 
 const routes = [
@@ -12,6 +13,11 @@ const routes = [
     path: '/',
     name: "Index",
     component: IndexPage,
+  },
+  {
+    path: '/loading',
+    name: "Loading",
+    component: LoadingPage,
   },
   {
     path: '/qrcode',
