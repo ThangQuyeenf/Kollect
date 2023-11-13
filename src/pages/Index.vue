@@ -84,6 +84,10 @@ export default {
         //     if (!liff.isLoggedIn()) {
         //         liff.login()
         //     }
+        liff.init({ liffId: '2001602140-y3gZ0PPj' })
+        if(!liff.isLoggedIn()){
+            await liff.login({ redirectUri: "https://liff.line.me/2001602140-y3gZ0PPj" })
+        }
     },
 }
 </script>
