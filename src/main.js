@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import liff from '@line/liff'
 import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import store from './store'
@@ -10,6 +11,7 @@ import '@mdi/font/css/materialdesignicons.css'
 Vue.config.productionTip = false
 Vue.component('content-loading', ContentLoading);
 
+liff.init({ liffId: '2001602140-y3gZ0PPj' })
 new Vue({
   vuetify,
   store,
