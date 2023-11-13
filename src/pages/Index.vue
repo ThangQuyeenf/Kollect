@@ -16,7 +16,11 @@
                 <v-btn color="primary" rounded elevated outlined @click="toQRCode">
                     QR Camera V2
                 </v-btn>
-                
+            </div>
+            <div class="text-center mt-4">
+                <v-btn color="primary" rounded elevated outlined @click="getJWTToken">
+                    Get JWT token
+                </v-btn>
             </div>
             <div v-if="isScanResult"> {{ data }}</div>
             <div v-if="jwttoken"> 
@@ -59,6 +63,9 @@ export default {
         },
         toQRCode() {
             this.$router.push('/qrcode')
+        },
+        getJWTToken() {
+            this.jwttoken = liff.getIDToken()
         }
     },
     async main() {
@@ -68,8 +75,7 @@ export default {
         // liff.init({ liffId: '2001602140-y3gZ0PPj' })
         if(!liff.isLoggedIn()){
             await liff.login({ redirectUri: "https://kollect-one.vercel.app" })
-        }
-        this.jwttoken = await liff.getIDToken()
+        }   
     },
 }
 </script>
