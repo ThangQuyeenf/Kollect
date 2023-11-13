@@ -4,7 +4,7 @@
             <div class="text-center mt-4">
                 <h1>Kollect</h1>
             </div>
-            <div>
+            <div class="text-center mt-4">
                 <img src="../assets/logo.png" alt="logo">
             </div>
             <div class="text-center mt-4">
@@ -16,6 +16,7 @@
                 <v-btn color="primary" rounded elevated outlined @click="toQRCode">
                     QR Camera V2
                 </v-btn>
+                
             </div>
             <div v-if="isScanResult"> {{ data }}</div>
             <div v-if="jwttoken"> 
@@ -38,7 +39,7 @@ export default {
             data: null,
             liff_id: '2001602140-y3gZ0PPj',
             isScanResult: false,
-            jwttoken: null,
+            jwttoken: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quo dolores ipsa! Fugit nemo laudantium accusantium nam nesciunt dicta laborum quas. Omnis cumque mollitia nesciunt consequatur alias autem non. Ipsa?',
         }
     },
     methods: {
@@ -73,4 +74,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-card {
+    max-width: 400px;
+}
+</style>
