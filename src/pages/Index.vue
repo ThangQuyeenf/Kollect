@@ -18,7 +18,11 @@
                 </v-btn>
             </div>
             <div v-if="isScanResult"> {{ data }}</div>
-            <div v-if="jwttoken"> {{ jwttoken }}</div>
+            <div v-if="jwttoken"> 
+                <v-card class="mt-4 p-4">
+                    <p>{{ jwttoken }}</p>
+                </v-card>
+            </div>
         </div>
     </v-container>
 </template>
@@ -64,7 +68,7 @@ export default {
         if(!liff.isLoggedIn()){
             await liff.login({ redirectUri: "https://kollect-one.vercel.app" })
         }
-        this.jwttoken = liff.getIDToken()
+        this.jwttoken = await liff.getIDToken()
     },
 }
 </script>
