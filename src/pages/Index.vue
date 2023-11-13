@@ -43,7 +43,7 @@ export default {
             data: null,
             liff_id: '2001602140-y3gZ0PPj',
             isScanResult: false,
-            jwttoken: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate quo dolores ipsa! Fugit nemo laudantium accusantium nam nesciunt dicta laborum quas. Omnis cumque mollitia nesciunt consequatur alias autem non. Ipsa?',
+            jwttoken: null,
         }
     },
     methods: {
@@ -82,6 +82,6 @@ export default {
 
 <style scoped>
 .v-card {
-    max-width: 400px;
+    max-width: 300px;
 }
 </style>
